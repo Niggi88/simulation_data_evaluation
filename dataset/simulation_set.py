@@ -1,9 +1,11 @@
 import pathlib
 from dataset.base_dataset import DataSet
+from config import load_config
 
 class SimulationSet(DataSet):
     def __init__(self, directory):
         path = pathlib.Path(directory)
+        self.config = load_config()
         print(f"images from: {path}")
         images = (str(x) for x in path.glob("*.png"))
         sorted_images = sorted(images)
@@ -14,6 +16,7 @@ class SimulationSet(DataSet):
         # label_dir = str(path.parent.parent) + "/labels/" + path.stem + ".txt"
         label_dir = image_dir.replace(".png", ".txt")
         label = self.parse_label(label_dir)
+        label = [l for l in label if l['visibility'] > self.config.min_visibility]
         return label
     
     def profile_set(self):

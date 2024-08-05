@@ -14,6 +14,7 @@ class Config(BaseModel):
     iou_threshold: float
     letterboxing: bool
     yolo_version: str
+    min_visibility: float
     
     
 def load_config():

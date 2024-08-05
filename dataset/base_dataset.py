@@ -34,7 +34,8 @@ class DataSet(ABC):
                         "y": y,
                         "w": w,
                         "h": h,
-                    }
+                    },
+                    "visibility": visibility,
                 })
             return boxes
     

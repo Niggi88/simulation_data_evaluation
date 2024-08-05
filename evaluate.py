@@ -161,6 +161,6 @@ if __name__ == "__main__":
     sess_options.enable_profiling = True
     SESS = rt.InferenceSession(CONFIG.model_dir, 
                                session_options=sess_options,
-                               providers=['CUDAExecutionProvider']) # , 'CPUExecutionProvider' 'CUDAExecutionProvider'
+                               providers=['CUDAExecutionProvider', 'CPUExecutionProvider']) #  'CUDAExecutionProvider'
     CLASS_MAP = get_class_map(CONFIG.model_dir)
     evaluate(data_set)
