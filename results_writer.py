@@ -15,9 +15,18 @@ class ResultsWriter:
     def add_results(self, class_name, tp, fp, tn, fn):
         with open(self.dir, "a") as f:
             f.write(f"{class_name} - TP: {tp}, FP: {fp}, TN: {tn}, FN: {fn}\n")
-            precision = tp / (tp + fp)
-            recall = tp / (tp + fn)
-            f1 = 2 * (precision * recall) / (precision + recall)
+            if tp + fp == 0:
+                precision = 0
+            else:
+                precision = tp / (tp + fp)
+            if tp + fn == 0:
+                recall = 0
+            else:
+                recall = tp / (tp + fn)
+            if precision + recall == 0:
+                f1 = 0
+            else:
+                f1 = 2 * (precision * recall) / (precision + recall)
             f.write(f"Precision: {precision}, Recall: {recall}, F1: {f1}\n")
             f.write("\n")
             

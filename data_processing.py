@@ -202,7 +202,6 @@ def process_results(results, conf_thresh, iou_thresh, class_map, rescale_dims):
         class_index = int(np.argmax(pred[5:]))
         confidence = float(pred[4]) * float(pred[5 + class_index])
         class_name = class_map[class_index]
-        # print("box: ", box, "confidence: ", confidence, "index:", class_index, "name:", class_name)
         detections.append({"box": {'x': x, 'y': y, 'w': w, "h": h}, "confidence": confidence, "class_index": class_index, "class_name": class_name, "is_border": is_edge(x,y,w,h), "confidence": confidence, "box_confidence": float(pred[4]), "class_confidence": float(pred[5 + class_index])})
     
     return detections

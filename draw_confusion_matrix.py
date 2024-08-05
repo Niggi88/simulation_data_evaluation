@@ -69,7 +69,7 @@ def make_confusion_matrix(cm_csv_src: str, title: str) -> None:
         title = title + f' T: {CONFIG.confidence_threshold} Precision: {round(precision*100, 2)}%; Recall: {round(recall*100, 2)}%'
         ax.set_title(title)
         plt.tight_layout()
-        plt.savefig(cm_csv_src.replace(".csv", ".png"), dpi=400)
+        plt.savefig(cm_csv_src.with_suffix('.png'), dpi=400)
         plt.close()
     
     
@@ -91,7 +91,7 @@ def make_multiclass_confusion_matrix_weighted(cm_csv_src: str, title: str) -> No
     precision, recall, f1_score = calculate_metrics_from_confusion_matrix(df_cm)
     title = title + f' Precision: {round(precision*100, 2)}%; Recall: {round(recall*100, 2)}%;  f1: {round(f1_score,2)}'
     ax.set_title(title)
-    plt.savefig(cm_csv_src.replace(".csv", ".png"), dpi=400)
+    plt.savefig(cm_csv_src.with_suffix('.png'), dpi=400)
     
     
 def make_multiclass_confusion_matrix(cm_csv_src: str, title: str) -> None:
@@ -112,7 +112,7 @@ def make_multiclass_confusion_matrix(cm_csv_src: str, title: str) -> None:
     precision, recall, f1_score = calculate_metrics_from_confusion_matrix(df_cm)
     title = title + f' Precision: {round(precision*100, 2)}%; Recall: {round(recall*100, 2)}%;  f1: {round(f1_score,2)}'
     ax.set_title(title)
-    plt.savefig(cm_csv_src.replace(".csv", ".png"), dpi=400)
+    plt.savefig(cm_csv_src.with_suffix('.png'), dpi=400)
 
 
 def generate_confusion_matrix(tp, fp, tn, fn, save=True, name="confusion_matrix"):

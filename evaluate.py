@@ -18,7 +18,7 @@ import cv2
 from results_writer import ResultsWriter
 from config import load_config
 
-logger.add("logs/results.log", rotation="1 MB")
+logger.add(pathlib.Path("logs") / "results.log", rotation="1 MB")
 
 
 if 'CUDAExecutionProvider' in rt.get_available_providers():
@@ -87,7 +87,7 @@ def generate_confusion_matrix(tp, fp, tn, fn, save=True, name="confusion_matrix"
     }
     df = pd.DataFrame(data)
     df.set_index('', inplace=True)
-    confusion_matrix_dir = os.path.join(OUT, f"{name}.csv")
+    confusion_matrix_dir = CONFIG.out_dir / f"{name}.csv"
     df.to_csv(confusion_matrix_dir)
     make_confusion_matrix(confusion_matrix_dir, name)
     return df

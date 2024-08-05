@@ -9,5 +9,6 @@ yolo_version: "v5"
 
 ################################################
 # in and out folders
-folder: /media/fast/dataset/frische_zigaretten_redbull/NRFsample/
+# folder: /media/fast/dataset/frische_zigaretten_redbull/NRFsample/
+folder: /media/fast/dataset/frische_zigaretten_redbull/test_new_sim/
 out_dir: /media/fast/dataset/tmp/
