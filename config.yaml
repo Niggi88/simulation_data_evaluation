@@ -1,0 +1,13 @@
+################################################
+# leave as is
+model_dir: resources/object_detection1.onnx
+
+iou_threshold: 0.7
+confidence_threshold: 0.5
+letterboxing: true
+yolo_version: "v5"
+
+################################################
+# in and out folders
+folder: /media/fast/dataset/frische_zigaretten_redbull/NRFsample/
+out_dir: /media/fast/dataset/tmp/

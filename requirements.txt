@@ -1,0 +1,12 @@
+numpy
+onnx
+onnxruntime
+tqdm
+pyyaml
+pydantic
+strictyaml
+loguru
+pandas
+opencv-python
+matplotlib
+seaborn
