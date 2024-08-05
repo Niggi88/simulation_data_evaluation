@@ -25,6 +25,7 @@ class DataSet(ABC):
                 y = float(line[2])
                 w = float(line[3])
                 h = float(line[4])
+                visibility = float(line[5]) if len(line) > 5 else 0.0
                 boxes.append({
                     "class_index": class_id,
                     "class_name": self.CLASS_MAP[class_id],
