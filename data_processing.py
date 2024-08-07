@@ -22,9 +22,10 @@ def get_class_map(model_dir):
         if item.key == 'names':
             class_map = item.value
     if class_map is None: raise Exception("No class map found")
+
     
-    # class_map = meta_data["names"]
-    return eval(class_map)# {item.key: item.value for item in meta_data}
+    return {0: 'cigarettes', 2: 'fresh_food_counter', 1: 'redbull'}# eval(class_map)
+    
 
 
 def apply_class_specific_non_max_suppression(predictions, iou_threshold):
